@@ -1,0 +1,65 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'M05[0]'
+Slack : -4.839
+TNS   : -14.347
+
+Type  : Slow 1200mV 85C Model Hold 'M05[0]'
+Slack : 1.465
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'M05[0]'
+Slack : -3.554
+TNS   : -3.554
+
+Type  : Slow 1200mV 85C Model Removal 'M05[0]'
+Slack : 0.889
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'M05[0]'
+Slack : -3.000
+TNS   : -16.562
+
+Type  : Slow 1200mV 0C Model Setup 'M05[0]'
+Slack : -4.557
+TNS   : -13.473
+
+Type  : Slow 1200mV 0C Model Hold 'M05[0]'
+Slack : 1.425
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'M05[0]'
+Slack : -3.335
+TNS   : -3.335
+
+Type  : Slow 1200mV 0C Model Removal 'M05[0]'
+Slack : 0.841
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'M05[0]'
+Slack : -3.000
+TNS   : -12.747
+
+Type  : Fast 1200mV 0C Model Setup 'M05[0]'
+Slack : -2.029
+TNS   : -5.969
+
+Type  : Fast 1200mV 0C Model Hold 'M05[0]'
+Slack : 0.627
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'M05[0]'
+Slack : -1.448
+TNS   : -1.448
+
+Type  : Fast 1200mV 0C Model Removal 'M05[0]'
+Slack : 0.319
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'M05[0]'
+Slack : -3.000
+TNS   : -8.836
+
+------------------------------------------------------------

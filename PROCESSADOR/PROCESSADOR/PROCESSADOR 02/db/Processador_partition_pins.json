@@ -1,0 +1,133 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "DISPLAY[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[7]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[8]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[9]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[10]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[11]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[12]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[13]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[14]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[15]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[16]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[17]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[18]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[19]",
+					"strict" : false
+				},
+				{
+					"name" : "DISPLAY[20]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[4]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[6]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[5]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[8]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[0]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[3]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[7]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[9]",
+					"strict" : false
+				},
+				{
+					"name" : "data_in[2]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

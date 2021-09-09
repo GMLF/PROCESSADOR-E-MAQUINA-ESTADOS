@@ -1,0 +1,102 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+USE ieee.std_logic_unsigned.all ;
+
+ENTITY processador IS
+	PORT
+	(
+		-- Barramento de endereços (8 bits)
+		-- Address bus (8 bits)
+		address_bus	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		-- Barramentos de dados unidirecionais (DATA_IN e DATA_OUT) de 8 bits
+		-- Unidirectional Data buses (DATA_IN and DATA_OUT) (8 bits)
+		data_in		: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+		data_out	: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		mem_write	: OUT std_logic;	-- Sinal de escrita na memória (memory write signal)
+		clk			: IN std_logic;		-- Clock principal (main clock)
+		reset		: IN std_logic;		-- Reset da CPU (CPU reset)
+		ERROR		: OUT STD_LOGIC	-- Error (opcode ilegal) (illegal opcode error)
+        selecao  	: IN  STD_LOGIC_VECTOR(3 downto 0);     -- entrada para selecionar a função
+        A,B         : IN  std_LOGIC_VECTOR(7 downto 0);     -- Váriaveis do ULA
+        
+	);
+end processador;
+
+ARCHITECTURE cpu OF processador IS
+    constant ULA : std_logic_vector(7 downto 0) := "00000000";
+    signal resultado 		:	STD_LOGIC_VECTOR(7 downto 0);   -- vai receber o resultado das operações
+	signal temporaria		: 	STD_LOGIC_VECTOR(4 downto 0);		-- variavel temporaria para aux no CarryOut
+
+begin 
+        
+        process(clk,reset)
+            variable PC : std_logic_vector(7 downto 0);
+            case (PC) is
+
+                when ULA =>
+
+                 case (selecao) is
+				
+                        when "0000" =>  	 		 -- adição
+                            resultado <= A + B ; 
+                    
+                        when "0001" => 			-- subtração
+                             resultado <= A - B ;
+        
+                        when "0010" =>			 -- multiplicação (P/ fazer a operação, não é permitido o std_logic_Vector; transformou o A em unsigned, dps para inteiro, fez a operação, voltou pra unsigned, dps voltou para std_logic_vector)
+                             resultado <= std_logic_vector(to_unsigned((to_integer(unsigned(A)) * to_integer(unsigned(B))), 4));
+        
+                      when "0011" => 		-- divisão (mesma logica da multiplicação)
+                               resultado <= std_logic_vector(to_unsigned(to_integer(unsigned(A)) / to_integer(unsigned(B)), 4));
+    
+                     when "0100" => 		-- Maior 
+                        if(A > B) then
+                         resultado <= x"1" ;     -- O X é uma operação que vai passar para o resultado uma variavel desconhecida. o que esta entre aspas, é N numeros que vai ser multiplicado por 4
+                     else								-- Nesse caso, como só tem um numero dentro, entao vai retorna 4 bits. se tivesse dois numeros, ia retornar 8 bits
+                            resultado <= x"0" ;
+                        end if; 
+                    
+                      when "0101" => 		-- Menor
+                     if(A < B) then
+                         resultado <= x"1" ;
+                     else
+                         resultado <= x"0" ;
+                     end if; 
+                    
+                        when "0110" => 		-- Maior igual 
+                     if(A >= B) then
+                            resultado <= x"1" ;
+                        else
+                            resultado <= x"0" ;
+                        end if; 
+                        
+                     when "0111" => 		-- Menor igual 
+                     if(A <= B) then
+                         resultado <= x"1" ;
+                     else
+                         resultado <= x"0" ;
+                     end if; 
+                    
+                     when "1000" => 		-- Igual
+                        if(A = B) then
+                            resultado <= x"1" ;
+                        else
+                            resultado <= x"0" ;
+                     end if; 
+                    
+                    when "1001" => 		-- Diferente 
+                        if(A /= B) then
+                            resultado <= x"1" ;
+                    else
+                        resultado <= x"0" ;
+                      end if; 
+                    
+                    when others => resultado <= x"0";
+                
+                when others =>
+                      NULL;
+                    
+             end case;
+        
+         end process;
+

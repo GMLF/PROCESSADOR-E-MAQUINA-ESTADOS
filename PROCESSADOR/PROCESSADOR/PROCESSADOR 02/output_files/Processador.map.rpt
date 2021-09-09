@@ -1,0 +1,854 @@
+Analysis & Synthesis report for Processador
+Wed Aug 25 12:30:59 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. Logic Cells Representing Combinational Loops
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
+ 13. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 14. lpm_mult Parameter Settings by Entity Instance
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Aug 25 12:30:59 2021       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; Processador                                 ;
+; Top-level Entity Name              ; Processador                                 ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 148                                         ;
+;     Total combinational functions  ; 148                                         ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 52                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DCF484I7G     ;                    ;
+; Top-level entity name                                            ; Processador        ; Processador        ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 12          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                          ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                      ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------+---------+
+; Processador.vhd                  ; yes             ; User VHDL File               ; C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd            ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf                                               ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                                             ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_add_sub.inc                                            ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.inc                                               ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/bypassff.inc                                               ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altshift.inc                                               ;         ;
+; multcore.tdf                     ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.tdf                                               ;         ;
+; csa_add.inc                      ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/csa_add.inc                                                ;         ;
+; mpar_add.inc                     ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/mpar_add.inc                                               ;         ;
+; muleabz.inc                      ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/muleabz.inc                                                ;         ;
+; mul_lfrg.inc                     ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/mul_lfrg.inc                                               ;         ;
+; mul_boothc.inc                   ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/mul_boothc.inc                                             ;         ;
+; alt_ded_mult.inc                 ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/alt_ded_mult.inc                                           ;         ;
+; alt_ded_mult_y.inc               ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/alt_ded_mult_y.inc                                         ;         ;
+; dffpipe.inc                      ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/dffpipe.inc                                                ;         ;
+; mpar_add.tdf                     ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/mpar_add.tdf                                               ;         ;
+; lpm_add_sub.tdf                  ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_add_sub.tdf                                            ;         ;
+; addcore.inc                      ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/addcore.inc                                                ;         ;
+; look_add.inc                     ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/look_add.inc                                               ;         ;
+; alt_stratix_add_sub.inc          ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/alt_stratix_add_sub.inc                                    ;         ;
+; db/add_sub_8mg.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/db/add_sub_8mg.tdf         ;         ;
+; altshift.tdf                     ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altshift.tdf                                               ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_divide.tdf                                             ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc                                            ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc                                        ;         ;
+; db/lpm_divide_5sl.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/db/lpm_divide_5sl.tdf      ;         ;
+; db/sign_div_unsign_7kh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/db/sign_div_unsign_7kh.tdf ;         ;
+; db/alt_u_div_oee.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/db/alt_u_div_oee.tdf       ;         ;
+; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/db/add_sub_t3c.tdf         ;         ;
+; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/db/add_sub_u3c.tdf         ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimated Total logic elements              ; 148          ;
+;                                             ;              ;
+; Total combinational functions               ; 148          ;
+; Logic element usage by number of LUT inputs ;              ;
+;     -- 4 input functions                    ; 58           ;
+;     -- 3 input functions                    ; 58           ;
+;     -- <=2 input functions                  ; 32           ;
+;                                             ;              ;
+; Logic elements by mode                      ;              ;
+;     -- normal mode                          ; 138          ;
+;     -- arithmetic mode                      ; 10           ;
+;                                             ;              ;
+; Total registers                             ; 0            ;
+;     -- Dedicated logic registers            ; 0            ;
+;     -- I/O registers                        ; 0            ;
+;                                             ;              ;
+; I/O pins                                    ; 52           ;
+;                                             ;              ;
+; Embedded Multiplier 9-bit elements          ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; Selector43~3 ;
+; Maximum fan-out                             ; 21           ;
+; Total fan-out                               ; 527          ;
+; Average fan-out                             ; 2.09         ;
++---------------------------------------------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                    ;
++---------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                  ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                            ; Entity Name         ; Library Name ;
++---------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |Processador                                ; 148 (126)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 52   ; 0            ; 0          ; |Processador                                                                                                   ; Processador         ; work         ;
+;    |lpm_divide:Div0|                        ; 13 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processador|lpm_divide:Div0                                                                                   ; lpm_divide          ; work         ;
+;       |lpm_divide_5sl:auto_generated|       ; 13 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processador|lpm_divide:Div0|lpm_divide_5sl:auto_generated                                                     ; lpm_divide_5sl      ; work         ;
+;          |sign_div_unsign_7kh:divider|      ; 13 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processador|lpm_divide:Div0|lpm_divide_5sl:auto_generated|sign_div_unsign_7kh:divider                         ; sign_div_unsign_7kh ; work         ;
+;             |alt_u_div_oee:divider|         ; 13 (13)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processador|lpm_divide:Div0|lpm_divide_5sl:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_oee:divider   ; alt_u_div_oee       ; work         ;
+;    |lpm_mult:Mult0|                         ; 9 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processador|lpm_mult:Mult0                                                                                    ; lpm_mult            ; work         ;
+;       |multcore:mult_core|                  ; 9 (6)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processador|lpm_mult:Mult0|multcore:mult_core                                                                 ; multcore            ; work         ;
+;          |mpar_add:padder|                  ; 3 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processador|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder                                                 ; mpar_add            ; work         ;
+;             |lpm_add_sub:adder[0]|          ; 3 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processador|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]                            ; lpm_add_sub         ; work         ;
+;                |add_sub_8mg:auto_generated| ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processador|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]|add_sub_8mg:auto_generated ; add_sub_8mg         ; work         ;
++---------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; DISPLAY[0]$latch                                    ; Selector43          ; yes                    ;
+; DISPLAY[1]$latch                                    ; Selector43          ; yes                    ;
+; DISPLAY[2]$latch                                    ; Selector43          ; yes                    ;
+; DISPLAY[3]$latch                                    ; Selector43          ; yes                    ;
+; DISPLAY[4]$latch                                    ; Selector43          ; yes                    ;
+; DISPLAY[5]$latch                                    ; Selector43          ; yes                    ;
+; DISPLAY[6]$latch                                    ; Selector43          ; yes                    ;
+; DISPLAY[7]$latch                                    ; Selector43          ; yes                    ;
+; DISPLAY[8]$latch                                    ; Selector43          ; yes                    ;
+; DISPLAY[9]$latch                                    ; Selector43          ; yes                    ;
+; DISPLAY[10]$latch                                   ; Selector43          ; yes                    ;
+; DISPLAY[11]$latch                                   ; Selector43          ; yes                    ;
+; DISPLAY[12]$latch                                   ; Selector43          ; yes                    ;
+; DISPLAY[13]$latch                                   ; Selector43          ; yes                    ;
+; DISPLAY[14]$latch                                   ; Selector43          ; yes                    ;
+; DISPLAY[15]$latch                                   ; Selector43          ; yes                    ;
+; DISPLAY[16]$latch                                   ; Selector43          ; yes                    ;
+; DISPLAY[17]$latch                                   ; Selector43          ; yes                    ;
+; DISPLAY[18]$latch                                   ; Selector43          ; yes                    ;
+; DISPLAY[19]$latch                                   ; Selector43          ; yes                    ;
+; DISPLAY[20]$latch                                   ; Selector43          ; yes                    ;
+; aux_int[3]                                          ; WideOr11            ; yes                    ;
+; aux_int[1]                                          ; WideOr11            ; yes                    ;
+; aux_int[2]                                          ; WideOr11            ; yes                    ;
+; aux_int[0]                                          ; WideOr11            ; yes                    ;
+; resultado[3]                                        ; WideOr11            ; yes                    ;
+; resultado[1]                                        ; WideOr11            ; yes                    ;
+; resultado[2]                                        ; WideOr11            ; yes                    ;
+; resultado[0]                                        ; WideOr11            ; yes                    ;
+; memoria[0][6]                                       ; Decoder0            ; yes                    ;
+; memoria[4][6]                                       ; Decoder0            ; yes                    ;
+; memoria[0][1]                                       ; Decoder0            ; yes                    ;
+; memoria[4][1]                                       ; Decoder0            ; yes                    ;
+; memoria[0][0]                                       ; Decoder0            ; yes                    ;
+; memoria[4][0]                                       ; Decoder0            ; yes                    ;
+; Number of user-specified and inferred latches = 35  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; endereco[1]~0                                          ;   ;
+; endereco[0]~1                                          ;   ;
+; Mux0~0                                                 ;   ;
+; Number of logic cells representing combinational loops ; 3 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |Processador|Mux7          ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |Processador|Selector52    ;
+; 12:1               ; 7 bits    ; 56 LEs        ; 7 LEs                ; 49 LEs                 ; No         ; |Processador|Selector37    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0                 ;
++------------------------------------------------+----------+---------------------+
+; Parameter Name                                 ; Value    ; Type                ;
++------------------------------------------------+----------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 3        ; Untyped             ;
+; LPM_WIDTHB                                     ; 2        ; Untyped             ;
+; LPM_WIDTHP                                     ; 5        ; Untyped             ;
+; LPM_WIDTHR                                     ; 5        ; Untyped             ;
+; LPM_WIDTHS                                     ; 1        ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped             ;
+; LPM_PIPELINE                                   ; 0        ; Untyped             ;
+; LATENCY                                        ; 0        ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO       ; Untyped             ;
+; USE_EAB                                        ; OFF      ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped             ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped             ;
+; CBXI_PARAMETER                                 ; NOTHING  ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped             ;
++------------------------------------------------+----------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_5sl ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance         ;
++---------------------------------------+----------------+
+; Name                                  ; Value          ;
++---------------------------------------+----------------+
+; Number of entity instances            ; 1              ;
+; Entity Instance                       ; lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 3              ;
+;     -- LPM_WIDTHB                     ; 2              ;
+;     -- LPM_WIDTHP                     ; 5              ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO             ;
+;     -- USE_EAB                        ; OFF            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
++---------------------------------------+----------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 52                          ;
+; cycloneiii_lcell_comb ; 150                         ;
+;     arith             ; 10                          ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 3                           ;
+;         3 data inputs ; 5                           ;
+;     normal            ; 140                         ;
+;         0 data inputs ; 8                           ;
+;         1 data inputs ; 2                           ;
+;         2 data inputs ; 19                          ;
+;         3 data inputs ; 53                          ;
+;         4 data inputs ; 58                          ;
+;                       ;                             ;
+; Max LUT depth         ; 11.00                       ;
+; Average LUT depth     ; 6.63                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Wed Aug 25 12:30:48 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Processador -c Processador
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file processador.vhd
+    Info (12022): Found design unit 1: Processador-CPU File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 18
+    Info (12023): Found entity 1: Processador File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 7
+Info (12127): Elaborating entity "Processador" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at Processador.vhd(13): used implicit default value for signal "data_out" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 13
+Warning (10540): VHDL Signal Declaration warning at Processador.vhd(44): used explicit default value for signal "NUMERO" because signal was never assigned a value File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 44
+Warning (10492): VHDL Process Statement warning at Processador.vhd(75): signal "registrador" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 75
+Warning (10492): VHDL Process Statement warning at Processador.vhd(78): signal "endereco" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 78
+Warning (10492): VHDL Process Statement warning at Processador.vhd(84): signal "memoria" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 84
+Warning (10492): VHDL Process Statement warning at Processador.vhd(84): signal "endereco" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 84
+Warning (10492): VHDL Process Statement warning at Processador.vhd(85): signal "aux" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 85
+Warning (10492): VHDL Process Statement warning at Processador.vhd(86): signal "aux" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 86
+Warning (10492): VHDL Process Statement warning at Processador.vhd(89): signal "PC" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 89
+Warning (10492): VHDL Process Statement warning at Processador.vhd(91): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 91
+Warning (10492): VHDL Process Statement warning at Processador.vhd(91): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 91
+Warning (10492): VHDL Process Statement warning at Processador.vhd(94): signal "resultado" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 94
+Warning (10492): VHDL Process Statement warning at Processador.vhd(95): signal "aux_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 95
+Warning (10492): VHDL Process Statement warning at Processador.vhd(112): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 112
+Warning (10492): VHDL Process Statement warning at Processador.vhd(112): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 112
+Warning (10492): VHDL Process Statement warning at Processador.vhd(113): signal "resultado" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 113
+Warning (10492): VHDL Process Statement warning at Processador.vhd(114): signal "aux_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 114
+Warning (10492): VHDL Process Statement warning at Processador.vhd(129): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 129
+Warning (10492): VHDL Process Statement warning at Processador.vhd(129): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 129
+Warning (10492): VHDL Process Statement warning at Processador.vhd(130): signal "resultado" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 130
+Warning (10492): VHDL Process Statement warning at Processador.vhd(131): signal "aux_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 131
+Warning (10492): VHDL Process Statement warning at Processador.vhd(146): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 146
+Warning (10492): VHDL Process Statement warning at Processador.vhd(146): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 146
+Warning (10492): VHDL Process Statement warning at Processador.vhd(147): signal "resultado" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 147
+Warning (10492): VHDL Process Statement warning at Processador.vhd(148): signal "aux_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 148
+Warning (10492): VHDL Process Statement warning at Processador.vhd(163): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 163
+Warning (10492): VHDL Process Statement warning at Processador.vhd(163): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 163
+Warning (10492): VHDL Process Statement warning at Processador.vhd(168): signal "resultado" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 168
+Warning (10492): VHDL Process Statement warning at Processador.vhd(169): signal "aux_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 169
+Warning (10492): VHDL Process Statement warning at Processador.vhd(184): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 184
+Warning (10492): VHDL Process Statement warning at Processador.vhd(184): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 184
+Warning (10492): VHDL Process Statement warning at Processador.vhd(189): signal "resultado" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 189
+Warning (10492): VHDL Process Statement warning at Processador.vhd(190): signal "aux_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 190
+Warning (10492): VHDL Process Statement warning at Processador.vhd(205): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 205
+Warning (10492): VHDL Process Statement warning at Processador.vhd(205): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 205
+Warning (10492): VHDL Process Statement warning at Processador.vhd(210): signal "resultado" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 210
+Warning (10492): VHDL Process Statement warning at Processador.vhd(211): signal "aux_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 211
+Warning (10492): VHDL Process Statement warning at Processador.vhd(226): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 226
+Warning (10492): VHDL Process Statement warning at Processador.vhd(226): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 226
+Warning (10492): VHDL Process Statement warning at Processador.vhd(231): signal "resultado" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 231
+Warning (10492): VHDL Process Statement warning at Processador.vhd(232): signal "aux_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 232
+Warning (10492): VHDL Process Statement warning at Processador.vhd(247): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 247
+Warning (10492): VHDL Process Statement warning at Processador.vhd(247): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 247
+Warning (10492): VHDL Process Statement warning at Processador.vhd(253): signal "resultado" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 253
+Warning (10492): VHDL Process Statement warning at Processador.vhd(254): signal "aux_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 254
+Warning (10492): VHDL Process Statement warning at Processador.vhd(269): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 269
+Warning (10492): VHDL Process Statement warning at Processador.vhd(269): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 269
+Warning (10492): VHDL Process Statement warning at Processador.vhd(274): signal "resultado" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 274
+Warning (10492): VHDL Process Statement warning at Processador.vhd(275): signal "aux_int" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 275
+Warning (10492): VHDL Process Statement warning at Processador.vhd(294): signal "memoria" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 294
+Warning (10492): VHDL Process Statement warning at Processador.vhd(294): signal "endereco" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 294
+Warning (10492): VHDL Process Statement warning at Processador.vhd(295): signal "aux" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 295
+Warning (10492): VHDL Process Statement warning at Processador.vhd(296): signal "aux" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 296
+Warning (10492): VHDL Process Statement warning at Processador.vhd(298): signal "aux_int_A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 298
+Warning (10492): VHDL Process Statement warning at Processador.vhd(313): signal "aux_int_B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 313
+Warning (10492): VHDL Process Statement warning at Processador.vhd(328): signal "NUMERO" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 328
+Warning (10492): VHDL Process Statement warning at Processador.vhd(328): signal "endereco" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 328
+Warning (10492): VHDL Process Statement warning at Processador.vhd(329): signal "endereco" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 329
+Warning (10492): VHDL Process Statement warning at Processador.vhd(334): signal "registrador" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 334
+Warning (10492): VHDL Process Statement warning at Processador.vhd(335): signal "registrador" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 335
+Warning (10492): VHDL Process Statement warning at Processador.vhd(336): signal "register_aux" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 336
+Warning (10631): VHDL Process Statement warning at Processador.vhd(72): inferring latch(es) for signal or variable "memoria", which holds its previous value in one or more paths through the process File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Warning (10631): VHDL Process Statement warning at Processador.vhd(72): inferring latch(es) for signal or variable "resultado", which holds its previous value in one or more paths through the process File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Warning (10631): VHDL Process Statement warning at Processador.vhd(72): inferring latch(es) for signal or variable "aux_int", which holds its previous value in one or more paths through the process File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Warning (10631): VHDL Process Statement warning at Processador.vhd(72): inferring latch(es) for signal or variable "DISPLAY", which holds its previous value in one or more paths through the process File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Warning (10631): VHDL Process Statement warning at Processador.vhd(72): inferring latch(es) for signal or variable "aux_int_A", which holds its previous value in one or more paths through the process File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Warning (10631): VHDL Process Statement warning at Processador.vhd(72): inferring latch(es) for signal or variable "aux_int_B", which holds its previous value in one or more paths through the process File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Warning (10631): VHDL Process Statement warning at Processador.vhd(72): inferring latch(es) for signal or variable "register_aux", which holds its previous value in one or more paths through the process File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Warning (10631): VHDL Process Statement warning at Processador.vhd(72): inferring latch(es) for signal or variable "registrador", which holds its previous value in one or more paths through the process File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[0]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[1]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[2]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[3]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[4]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[5]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[6]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[7]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[8]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[9]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[10]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[11]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[12]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[13]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[14]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[15]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[16]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[17]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[18]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[19]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[20]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[21]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[22]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[23]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[24]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[25]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[26]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[27]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[28]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[29]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[30]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_B[31]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[0]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[1]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[2]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[3]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[4]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[5]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[6]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[7]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[8]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[9]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[10]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[11]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[12]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[13]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[14]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[15]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[16]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[17]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[18]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[19]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[20]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[21]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[22]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[23]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[24]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[25]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[26]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[27]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[28]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[29]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[30]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int_A[31]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[0]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[1]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[2]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[3]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[4]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[5]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[6]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[7]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[8]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[9]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[10]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[11]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[12]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[13]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[14]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[15]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[16]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[17]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[18]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[19]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[20]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[21]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[22]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[23]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[24]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[25]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[26]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[27]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[28]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[29]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[30]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[31]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[32]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[33]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "DISPLAY[34]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[0]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[1]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[2]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[3]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[4]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[5]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[6]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[7]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[8]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[9]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[10]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[11]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[12]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[13]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[14]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[15]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[16]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[17]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[18]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[19]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[20]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[21]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[22]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[23]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[24]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[25]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[26]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[27]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[28]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[29]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[30]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "aux_int[31]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "resultado[0]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "resultado[1]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "resultado[2]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "resultado[3]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[4][0]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[4][1]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[4][2]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[4][3]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[4][4]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[4][5]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[4][6]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[4][7]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[3][0]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[3][1]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[3][2]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[3][3]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[3][4]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[3][5]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[3][6]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[3][7]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[2][0]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[2][1]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[2][2]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[2][3]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[2][4]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[2][5]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[2][6]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[2][7]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[1][0]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[1][1]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[1][2]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[1][3]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[1][4]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[1][5]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[1][6]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[1][7]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[0][0]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[0][1]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[0][2]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[0][3]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[0][4]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[0][5]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[0][6]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (10041): Inferred latch for "memoria[0][7]" at Processador.vhd(72) File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0" File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 129
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 146
+Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult0" File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 129
+Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following parameter: File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 129
+    Info (12134): Parameter "LPM_WIDTHA" = "3"
+    Info (12134): Parameter "LPM_WIDTHB" = "2"
+    Info (12134): Parameter "LPM_WIDTHP" = "5"
+    Info (12134): Parameter "LPM_WIDTHR" = "5"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult0|multcore:mult_core", which is child of megafunction instantiation "lpm_mult:Mult0" File: d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 324
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult0|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "lpm_mult:Mult0" File: d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.tdf Line: 283
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]", which is child of megafunction instantiation "lpm_mult:Mult0" File: d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/mpar_add.tdf Line: 78
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8mg.tdf
+    Info (12023): Found entity 1: add_sub_8mg File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/db/add_sub_8mg.tdf Line: 23
+Info (12131): Elaborated megafunction instantiation "lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "lpm_mult:Mult0" File: d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 352
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 146
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 146
+    Info (12134): Parameter "LPM_WIDTHN" = "4"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_5sl.tdf
+    Info (12023): Found entity 1: lpm_divide_5sl File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/db/lpm_divide_5sl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_7kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_7kh File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/db/sign_div_unsign_7kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_oee.tdf
+    Info (12023): Found entity 1: alt_u_div_oee File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/db/alt_u_div_oee.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/db/add_sub_t3c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/db/add_sub_u3c.tdf Line: 23
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "memoria[0][1]" merged with LATCH primitive "memoria[0][6]" File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Info (13026): Duplicate LATCH primitive "memoria[4][1]" merged with LATCH primitive "memoria[4][6]" File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Warning (13012): Latch DISPLAY[0]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal WideNor3 File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 89
+Warning (13012): Latch DISPLAY[1]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal WideNor3 File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 89
+Warning (13012): Latch DISPLAY[2]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal data_in[0] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 12
+Warning (13012): Latch DISPLAY[3]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal data_in[0] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 12
+Warning (13012): Latch DISPLAY[4]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal data_in[0] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 12
+Warning (13012): Latch DISPLAY[5]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal WideNor3 File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 89
+Warning (13012): Latch DISPLAY[6]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal data_in[0] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 12
+Warning (13012): Latch DISPLAY[7]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal WideNor3 File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 89
+Warning (13012): Latch DISPLAY[8]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal data_in[0] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 12
+Warning (13012): Latch DISPLAY[9]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal data_in[0] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 12
+Warning (13012): Latch DISPLAY[10]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal data_in[0] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 12
+Warning (13012): Latch DISPLAY[11]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal data_in[0] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 12
+Warning (13012): Latch DISPLAY[12]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal WideNor3 File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 89
+Warning (13012): Latch DISPLAY[13]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal data_in[0] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 12
+Warning (13012): Latch DISPLAY[14]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal aux_int[1] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Warning (13012): Latch DISPLAY[15]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal aux_int[1] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Warning (13012): Latch DISPLAY[16]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal aux_int[1] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Warning (13012): Latch DISPLAY[17]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal aux_int[1] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Warning (13012): Latch DISPLAY[18]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal aux_int[1] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Warning (13012): Latch DISPLAY[19]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal aux_int[1] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Warning (13012): Latch DISPLAY[20]$latch has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal data_in[0] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 12
+Warning (13012): Latch resultado[3] has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal data_in[0] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 12
+Warning (13012): Latch resultado[1] has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal data_in[0] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 12
+Warning (13012): Latch resultado[2] has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal data_in[0] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 12
+Warning (13012): Latch resultado[0] has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal data_in[0] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 12
+Warning (13012): Latch memoria[0][6] has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal data_in[0] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 12
+Warning (13012): Latch memoria[4][6] has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal data_in[0] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 12
+Warning (13012): Latch memoria[0][0] has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal data_in[0] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 12
+Warning (13012): Latch memoria[4][0] has unsafe behavior File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal data_in[0] File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 12
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "data_out[0]" is stuck at GND File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 13
+    Warning (13410): Pin "data_out[1]" is stuck at GND File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 13
+    Warning (13410): Pin "data_out[2]" is stuck at GND File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 13
+    Warning (13410): Pin "data_out[3]" is stuck at GND File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 13
+    Warning (13410): Pin "data_out[4]" is stuck at GND File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 13
+    Warning (13410): Pin "data_out[5]" is stuck at GND File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 13
+    Warning (13410): Pin "data_out[6]" is stuck at GND File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 13
+    Warning (13410): Pin "DISPLAY[21]" is stuck at VCC File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13410): Pin "DISPLAY[22]" is stuck at VCC File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13410): Pin "DISPLAY[23]" is stuck at VCC File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13410): Pin "DISPLAY[24]" is stuck at VCC File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13410): Pin "DISPLAY[25]" is stuck at VCC File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13410): Pin "DISPLAY[26]" is stuck at VCC File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13410): Pin "DISPLAY[27]" is stuck at VCC File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13410): Pin "DISPLAY[28]" is stuck at VCC File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13410): Pin "DISPLAY[29]" is stuck at VCC File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13410): Pin "DISPLAY[30]" is stuck at VCC File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13410): Pin "DISPLAY[31]" is stuck at VCC File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13410): Pin "DISPLAY[32]" is stuck at VCC File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13410): Pin "DISPLAY[33]" is stuck at VCC File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+    Warning (13410): Pin "DISPLAY[34]" is stuck at VCC File: C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/PROCESSADOR DJONGA/PROCESSADOR 02/Processador.vhd Line: 72
+Info (286030): Timing-Driven Synthesis is running
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "lpm_mult:Mult0|multcore:mult_core|decoder_node[0][1]" File: d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.tdf Line: 252
+    Info (17048): Logic cell "lpm_mult:Mult0|multcore:mult_core|decoder_node[1][0]" File: d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.tdf Line: 252
+    Info (17048): Logic cell "lpm_mult:Mult0|multcore:mult_core|decoder_node[1][1]" File: d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.tdf Line: 252
+    Info (17048): Logic cell "lpm_mult:Mult0|multcore:mult_core|decoder_node[0][0]" File: d:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.tdf Line: 252
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 200 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 10 input pins
+    Info (21059): Implemented 42 output pins
+    Info (21061): Implemented 148 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 150 warnings
+    Info: Peak virtual memory: 4846 megabytes
+    Info: Processing ended: Wed Aug 25 12:30:59 2021
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:16
+
+
