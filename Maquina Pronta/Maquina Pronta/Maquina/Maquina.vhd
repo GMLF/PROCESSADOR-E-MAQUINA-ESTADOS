@@ -13,8 +13,6 @@ entity Maquina is
 		OP: 		  	in std_logic_vector(1 downto 0);
 		--vetor que contem 2 leds para indicar qual produto o mesmo já pode adquirir
 		LED: 		   out std_logic_vector (1 downto 0);
-		--váriavel que separa a qtd de visores/segmentos utilizados
-		DISPLAY: 	out std_logic_vector(34 downto 0)
 	);
 
 	end Maquina;
@@ -34,7 +32,7 @@ entity Maquina is
 	process(entrada1,entrada2,TOTAL_DEPOSITADO)
 
 	begin
-	--capturando todas as possíveis entradas de moedas de 0,50 R$ e 1,00 R$
+	--capturando todas as possíveis entradas de moedas de 0,50 
 		case(M05) is
 			when "0001"	=> entrada1 <= 2;
 			when "0010"	=> entrada1 <= 2;

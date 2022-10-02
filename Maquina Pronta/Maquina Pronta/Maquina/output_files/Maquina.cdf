@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(10M50DAF484) Path("C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/Maquina Pronta/Maquina/output_files/") File("Maquina.sof") MfrSpec(OpMask(1));
+		Device PartName(10M50DAF484) Path("C:/Users/GMLF/Documents/GitHub/DE10-LITE-PROCESSADOR/Maquina Pronta/Maquina Pronta/Maquina/output_files/") File("Maquina.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
